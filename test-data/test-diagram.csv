@@ -1,0 +1,5 @@
+Id,Name,Shape Library,Page ID,Contained By,Group,Status,Text Area 1,apiversion,kind,metadata.labels.role,metadata.name,spec.containers.0.env.0.name,spec.containers.0.env.0.value,spec.containers.0.image,spec.containers.0.name,spec.containers.0.ports.0.containerport,spec.containers.0.ports.0.protocol,spec.ports.0.port,spec.ports.0.protocol,spec.ports.0.targetport,spec.selector.role
+1,Document,,,,,DRAFT,Blank diagram,,,,,,,,,,,,,,
+3,basic-pod,Kubernetes,2,,,,Pod,v1,Pod,poc-1,hello-world,service_name,depdraw-poc,f5devcentral/f5-hello-world:develop,poc-depdraw,8080,TCP,,,,
+4,basic-pod,Kubernetes,2,,,,Pod,v1,Pod,poc-2,hello-depdraw-2,service_name,depdraw-poc,f5devcentral/f5-hello-world:develop,poc-depdraw,8080,TCP,,,,
+5,basic-service,Kubernetes,2,,,,Service,v1,Service,,hello-depdraw-svc,,,,,,,8080,TCP,8080,poc-1
