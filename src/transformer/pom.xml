@@ -2,9 +2,16 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.redhat.depdraw</groupId>
   <artifactId>transformer</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
+  <parent>
+    <artifactId>depdraw-services-parent</artifactId>
+    <groupId>com.redhat.depdraw</groupId>
+    <relativePath>../pom.xml</relativePath>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.release>17</maven.compiler.release>
