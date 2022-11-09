@@ -10,7 +10,7 @@ in the other hand we have been demonistrating the other direction flow, which is
 
 those scripts are expecting a CSV file path as an input, and this file should be representing a LucidChart exported diagram, additionally its expecting some output file name " use ./out.yaml" and it expects the number of manifests expected.
 
-so using the [existing test-data](../test-data/test-diagram.csv), in order to convert it into K8S manifests the command should look like this:
+so using the [existing test-data](projects/depdraw/DepDraw/POC/test-datadraw/DepDraw/POC/test-data/test-diagram.csv), in order to convert it into K8S manifests the command should look like this:
 
 `assuming the WorkingDir is py_scripts`
 
