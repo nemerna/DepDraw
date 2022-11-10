@@ -1,14 +1,12 @@
-name: Java CI with Maven
+name: DepDraw CI
 
 on:
   pull_request:
     branches: main
 
 jobs:
-  build:
-
+  build-java:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -19,3 +17,25 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B -U package --file ./src/pom.xml
+
+  build-go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version-file: src/k8sclient/go.mod
+          cache-dependency-path: src/k8sclient/go.sum
+          cache: true
+
+      - name: Build
+        run: |
+          cd src/k8sclient
+          go mod tidy
+          go build -v ./...
+
+      - name: Test
+        run: |
+          cd src/k8sclient
+          go test -v ./...
