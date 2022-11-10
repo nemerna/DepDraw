@@ -57,5 +57,22 @@ go test -v ./... -coverprofile=coverage.out
 go tool cover -html=coverage.out
 ```
 
+## Deploying on Openshift
+First push the image generated using the instructions at [](#running-in-containerized-environment) on your image registry like:
+```bash
+docker tag k8sclient:dev quay.io/USER/k8sclient:dev
+docker push quay.io/USER/k8sclient:dev
+```
+(replace `USER` with your user ID in `quay.io`)
+
+docker tag k8sclient:dev quay.io/dmartino/k8sclient:dev
+docker push quay.io/dmartino/k8sclient:dev
 
 
+Edit the file [deploy/deployment.yaml](./deploy/deployment.yaml) and replace `<REGISTRY>/<NAME>:<TAG>` with the actual
+image registry, name and tag. Following the previous example, it should be something like: `quay.io/USER/k8sclient:dev` 
+
+Deploy the application and the access service:
+```bash
+oc apply -f deploy/
+```
