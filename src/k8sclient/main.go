@@ -11,10 +11,9 @@ import (
 	"github.com/gorilla/mux"
 )
 
-var router = mux.NewRouter()
-
 func startApi(config *config.Config) {
 	health := probes.NewHealthCheckForConfig(config)
+	router := mux.NewRouter()
 	router.Path("/health").HandlerFunc(health.Check).Name("healthHandler")
 
 	url := fmt.Sprintf(":%d", config.ServerPort())

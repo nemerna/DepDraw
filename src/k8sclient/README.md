@@ -38,11 +38,23 @@ docker build -t k8sclient:dev .
 docker run --rm -p 8080:8080 k8sclient:dev
 ```
 
-## Validation
+## Manual validation
 Validate the execution as:
 ```bash
 > curl localhost:8080/health
 {"status":200,"message":"Hello from me!"}
+```
+
+## Unit testing
+Unit tests are executed using:
+```bash
+go test -v ./...
+```
+
+To generate code coverage and view the results:
+```bash
+go test -v ./... -coverprofile=coverage.out
+go tool cover -html=coverage.out
 ```
 
 
