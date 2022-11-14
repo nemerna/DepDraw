@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transformer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transformer
+  template:
+    metadata:
+      labels:
+        app: transformer
+    spec:
+      serviceAccountName: default
+      containers:
+        - image: <REGISTRY>/<NAME>:<TAG>
+          name: transformer
+          imagePullPolicy: Always
+          env:
+            - name: SERVER_PORT
+              value: '8080'
+            - name: LOG_LEVEL
+              value: INFO
