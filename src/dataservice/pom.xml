@@ -5,6 +5,15 @@
   <groupId>com.redhat.depdraw</groupId>
   <artifactId>dataservice</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
+
+  <parent>
+    <artifactId>depdraw-services-parent</artifactId>
+    <groupId>com.redhat.depdraw</groupId>
+    <relativePath>../pom.xml</relativePath>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.release>11</maven.compiler.release>
