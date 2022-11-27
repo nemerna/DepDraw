@@ -1,0 +1,5 @@
+repository: image-registry.openshift-image-registry.svc:5000/depdraw
+image: "dataservice"
+tag: "latest"
+build: true
+ghRepo: https://github.com/nemerna/DepDraw.git

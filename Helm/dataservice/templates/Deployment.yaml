@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Release.Name }}-dataservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Release.Name }}-dataservice
+  template:
+    metadata:
+      labels:
+        app: {{.Release.Name }}-dataservice
+    spec:
+      serviceAccountName: default
+      containers:
+      - image: {{ default "image-registry.openshift-image-registry.svc:5000/depdraw" .Values.registry  }}/{{ default "depdraw-dataservice" .Values.image }}:{{ default "latest" .Values.tag }}
+        name: {{.Release.Name }}-dataservice
+        imagePullPolicy: Always
