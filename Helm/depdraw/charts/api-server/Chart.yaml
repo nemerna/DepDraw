@@ -1,5 +1,5 @@
 apiVersion: v2
-name: api-service
+name: api-server
 description: A Helm chart for deploying DepDraw/API-Service MS
 
 # A chart can be either an 'application' or a 'library' chart.
