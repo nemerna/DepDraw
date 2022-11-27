@@ -18,6 +18,8 @@
 
     <modules>
         <module>transformer</module>
+	<module>dataservice</module>
+	<module>api-server</module>
     </modules>
 
 </project>
