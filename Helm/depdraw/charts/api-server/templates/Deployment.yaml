@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Release.Name }}-api-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Release.Name }}-api-server
+  template:
+    metadata:
+      labels:
+        app: {{.Release.Name }}-api-server
+    spec:
+      serviceAccountName: default
+      containers:
+      - image: {{ default "image-registry.openshift-image-registry.svc:5000/depdraw" .Values.registry  }}/{{ .Release.Name }}-api-server:{{ default "latest" .Values.tag }}
+        name: {{.Release.Name }}-api-server
+        imagePullPolicy: Always
