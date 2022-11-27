@@ -41,5 +41,5 @@ spec:
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  name: depdraw-{{ default .Release.Name "dataservice" }}
+  name: depdraw-{{ default .Release.Name }}
   namespace: {{ .Release.Namespace }}
