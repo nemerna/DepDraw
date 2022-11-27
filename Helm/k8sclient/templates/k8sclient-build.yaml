@@ -7,7 +7,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: depdraw-{{ default .Release.Name "k8sclient" }}:latest
+      name: {{ .Release.Name }}-k8sclient:latest
       namespace: {{ .Release.Namespace }}
   postCommit: {}
   source:
@@ -28,7 +28,7 @@ spec:
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  name: depdraw-{{ default .Release.Name "k8sclient" }}
+  name: {{ .Release.Name }}-k8sclient
   namespace: {{ .Release.Namespace }}
 
 {{ end }}
