@@ -4,6 +4,10 @@
     "type": "object",
     "description": "A diagram object that represents an abstract diagram",
     "properties": {
+        "ID": {
+            "type": "integer",
+            "description": "The ID of the Diagram will be the UID of the Diagram object"
+        },
         "Name": {
             "type": "string",
             "description": "a Diagram will be given a Name by the user, if not set the default will be New Diagram",
@@ -25,6 +29,7 @@
     },
     "required": [
         "Name",
+        "ID",
         "Shapes"
     ]
 }
