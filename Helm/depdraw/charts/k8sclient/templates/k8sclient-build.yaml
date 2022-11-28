@@ -12,7 +12,7 @@ spec:
   postCommit: {}
   source:
     git:
-      uri: 'https://github.com/RHEcosystemAppEng/DepDraw.git'
+      uri: {{ .Values.ghRepo }}
     contextDir: src/k8sclient
     type: Git
   strategy:

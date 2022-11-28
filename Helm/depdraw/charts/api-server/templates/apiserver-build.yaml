@@ -30,7 +30,7 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/RHEcosystemAppEng/DepDraw.git'
+      uri: {{ .Values.ghRepo }}
     contextDir: src
   triggers:
     - type: ConfigChange

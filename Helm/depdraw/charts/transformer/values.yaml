@@ -1,2 +1,3 @@
 build: true
 mvnXtraArgs: "-Dquarkus.package.type=uber-jar -pl transformer --also-make"
+ghRepo: https://github.com/RHEcosystemAppEng/DepDraw.git
