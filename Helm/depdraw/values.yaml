@@ -1,15 +1,19 @@
 api-server:
   enabled: true
   build: true
+  mvnXtraArgs: "-Dquarkus.package.type=uber-jar -pl api-server --also-make"
 
 transformer:
   enabled: true
   build: true
+  mvnXtraArgs: "-Dquarkus.package.type=uber-jar -pl api-server --also-make"
 
 dataservice:
   enabled: true
   build: true
+  mvnXtraArgs: "-Dquarkus.package.type=uber-jar -pl api-server --also-make"
 
 k8sclient:
   enabled: true
   build: true
+  mvnXtraArgs: "-Dquarkus.package.type=uber-jar -pl api-server --also-make"
