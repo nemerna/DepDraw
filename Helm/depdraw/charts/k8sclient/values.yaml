@@ -1,5 +1,1 @@
-repository: image-registry.openshift-image-registry.svc:5000/depdraw
-image: "k8sclient"
-tag: "latest"
 build: true
-ghRepo: https://github.com/nemerna/DepDraw.git

@@ -1,27 +1,15 @@
 api-server:
   enabled: true
   build: true
-  repository: image-registry.openshift-image-registry.svc:5000/depdraw
-  tag: "latest"
-  ghRepo: https://github.com/nemerna/DepDraw.git
 
 transformer:
   enabled: true
   build: true
-  repository: image-registry.openshift-image-registry.svc:5000/depdraw
-  tag: "latest"
-  ghRepo: https://github.com/nemerna/DepDraw.git
 
 dataservice:
   enabled: true
   build: true
-  repository: image-registry.openshift-image-registry.svc:5000/depdraw
-  tag: "latest"
-  ghRepo: https://github.com/nemerna/DepDraw.git
 
 k8sclient:
   enabled: true
   build: true
-  repository: image-registry.openshift-image-registry.svc:5000/depdraw
-  tag: "latest"
-  ghRepo: https://github.com/nemerna/DepDraw.git

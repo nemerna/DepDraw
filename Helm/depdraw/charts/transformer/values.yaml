@@ -1,5 +1,2 @@
-repository: image-registry.openshift-image-registry.svc:5000/depdraw
-image: "transformer"
-tag: "latest"
 build: true
-ghRepo: https://github.com/nemerna/DepDraw.git
+mvnXtraArgs: "-Dquarkus.package.type=uber-jar -pl transformer --also-make"

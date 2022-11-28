@@ -18,11 +18,11 @@ spec:
     sourceStrategy:
       env:
       - name: MAVEN_ARGS_APPEND
-        value: {{ default .Values.mvnXtraArgs "-Dquarkus.package.type=uber-jar -pl dataservice --also-make" }}
+        value: {{ .Values.mvnXtraArgs "-Dquarkus.package.type=uber-jar -pl dataservice --also-make" }}
       - name: ARTIFACT_DIR
-        value: {{ default .Values.artifactDir "dataservice/target/" }}
+        value: dataservice/target/
       - name: MODULE_DIR
-        value: {{ default .Values.module "dataservice" }}
+        value: dataservice
       from:
         kind: DockerImage
         name: 'registry.access.redhat.com/ubi8/openjdk-17:1.14'
@@ -30,7 +30,7 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/nemerna/DepDraw.git'
+      uri: 'https://github.com/RHEcosystemAppEng/DepDraw.git'
     contextDir: src
   triggers:
     - type: ConfigChange

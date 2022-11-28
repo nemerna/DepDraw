@@ -1,4 +1,2 @@
-repository: image-registry.openshift-image-registry.svc:5000/depdraw
-tag: "latest"
 build: true
-ghRepo: https://github.com/nemerna/DepDraw.git
+mvnXtraArgs: "-Dquarkus.package.type=uber-jar -pl api-server --also-make"

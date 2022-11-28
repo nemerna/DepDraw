@@ -14,6 +14,6 @@ spec:
     spec:
       serviceAccountName: default
       containers:
-      - image: {{ default "image-registry.openshift-image-registry.svc:5000/depdraw" .Values.registry  }}/{{ .Release.Name }}-transformer:{{ default "latest" .Values.tag }}
+      - image: image-registry.openshift-image-registry.svc:5000/depdraw/{{ .Release.Name }}-transformer:latest
         name: {{.Release.Name }}-transformer
         imagePullPolicy: Always

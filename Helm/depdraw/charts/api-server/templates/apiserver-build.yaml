@@ -18,11 +18,11 @@ spec:
     sourceStrategy:
       env:
       - name: MAVEN_ARGS_APPEND
-        value: {{ default .Values.mvnXtraArgs "-Dquarkus.package.type=uber-jar -pl api-server --also-make" }}
+        value: {{ .Values.mvnXtraArgs }}
       - name: ARTIFACT_DIR
-        value: {{ default .Values.artifactDir "api-server/target/" }}
+        value: api-server/target/
       - name: MODULE_DIR
-        value: {{ default .Values.module "api-server" }}
+        value: api-server
       from:
         kind: DockerImage
         name: 'registry.access.redhat.com/ubi8/openjdk-17:1.14'
@@ -30,7 +30,7 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/nemerna/DepDraw.git'
+      uri: 'https://github.com/RHEcosystemAppEng/DepDraw.git'
     contextDir: src
   triggers:
     - type: ConfigChange
