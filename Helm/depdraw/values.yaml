@@ -16,4 +16,3 @@ dataservice:
 k8sclient:
   enabled: true
   build: true
-  mvnXtraArgs: "-Dquarkus.package.type=uber-jar -pl k8sclient --also-make"
