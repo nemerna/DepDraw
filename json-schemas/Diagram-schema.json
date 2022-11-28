@@ -1,0 +1,30 @@
+{
+    "$id": "./Diagram-schema.json",
+    "name": "Diagram",
+    "type": "object",
+    "description": "A diagram object that represents an abstract diagram",
+    "properties": {
+        "Name": {
+            "type": "string",
+            "description": "a Diagram will be given a Name by the user, if not set the default will be New Diagram",
+            "default": "New Diagram"
+        },
+        "Shapes": {
+            "type": "array",
+            "description": "An array of Shape Object that represents the shapes inside a particular Diagram",
+            "items": {
+                "$ref": "./Shape-schema.json"
+            }
+        },
+        "Connectors": {
+            "type": "array",
+            "items": {
+                "$ref": "./Connector-schema.json"
+            }
+        }
+    },
+    "required": [
+        "Name",
+        "Shapes"
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "$id": "./Connector-schema.json",
+    "name": "Connector",
+    "type": "object",
+    "properties": {
+        "ID": {
+            "type": "integer",
+            "description": "the UID of a connector"
+        },
+        "src": {
+            "type": "integer",
+            "description": "the ID of the Src shape that the connector connects it with the other shape"
+        },
+        "dist": {
+            "type": "integer",
+            "description": "the ID of the Distination shape that the connector connects it with the other shape"
+        },
+        "ConnectorType": {
+            "type": "string",
+            "description": "the Type of connector for letting the BE know what logical actions should be applied over the final Diagram instance shapes",
+            "enum": [
+                "inherit labels",
+                "sync selector",
+                "owned by",
+                "apply labels and annotations"
+            ]
+        }
+    },
+    "required": [
+        "ID",
+        "src",
+        "dist",
+        "ConnectorType"
+    ]
+}

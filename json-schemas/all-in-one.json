@@ -1,0 +1,122 @@
+{
+    
+    "type": "object",
+    "description": "A diagram object that represents an abstract diagram",
+    "properties": {
+        "Name": {
+            "type": "string",
+            "description": "a Diagram will be given a Name by the user, if not set the default will be New Diagram",
+            "default": "New Diagram"
+        },
+        "Shapes": {
+            "type": "array",
+            "description": "An array of Shape Object that represents the shapes inside a particular Diagram",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "ID": {
+                        "type": "integer",
+                        "description": "The ID of the shape will be the UID of the shape object"
+                    },
+                    "ShapeType": {
+                        "type": "string",
+                        "description": "a template type which indicates what thing this shape represents\nsuch like pod, svc, deployment etc..",
+                        "default": "Pod",
+                        "enum": [
+                            "Pod",
+                            "Service",
+                            "Route",
+                            "Deployment",
+                            "Statefulset",
+                            "Project",
+                            "Namespace",
+                            "KeyValult"
+                        ]
+                    },
+                    "ContainedBy": {
+                        "type": "integer",
+                        "description": "a reference to the shape ID that is Conatining this shape inside it\nmay be used when creating a NameSpace shape and a pod is being drawed inside this Namespace shape"
+                    },
+                    "Apperance": {
+                        "type": "object",
+                        "description": "the shape appearance properties which decide how it is being displayed in the FE",
+                        "minProperties": 0,
+                        "maxProperties": null,
+                        "additionalProperties": false,
+                        "properties": {
+                            "Width": {
+                                "type": "integer",
+                                "description": "the width of the rectangular representation of the shape in px",
+                                "default": "10"
+                            },
+                            "Height": {
+                                "type": "integer",
+                                "description": "the Height of the rectangular representation of the shape in px",
+                                "default": "10"
+                            },
+                            "PosX": {
+                                "type": "integer",
+                                "description": "the Position of the rectangular surrounding of the shape object top left corner, by default should be automatically set to the X position of the mouse once the shape is dropped in a diagram"
+                            },
+                            "PosY": {
+                                "type": "integer",
+                                "description": "the Position of the rectangular surrounding of the shape object top left corner on Y measure, by default should be automatically set to the Y position of the mouse once the shape is dropped in a diagram"
+                            }
+                        },
+                        "required": [
+                            "Width",
+                            "Height",
+                            "PosX",
+                            "PosY"
+                        ]
+                    }
+                },
+                "required": [
+                    "ID",
+                    "ShapeType",
+                    "Apperance"
+                ]
+            }
+        },
+        "Connectors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "ID": {
+                        "type": "integer",
+                        "description": "the UID of a connector"
+                    },
+                    "src": {
+                        "type": "integer",
+                        "description": "the ID of the Src shape that the connector connects it with the other shape"
+                    },
+                    "dist": {
+                        "type": "integer",
+                        "description": "the ID of the Distination shape that the connector connects it with the other shape"
+                    },
+                    "ConnectorType": {
+                        "type": "string",
+                        "description": "the Type of connector for letting the BE know what logical actions should be applied over the final Diagram instance shapes",
+                        "enum": [
+                            "inherit labels",
+                            "sync selector",
+                            "owned by",
+                            "apply labels and annotations"
+                        ]
+                    }
+                },
+                "required": [
+                    "ID",
+                    "src",
+                    "dist",
+                    "ConnectorType"
+                ]
+            }
+        }
+    },
+    "required": [
+        "Name",
+        "Shapes"
+    ]
+}
