@@ -18,7 +18,7 @@ spec:
     sourceStrategy:
       env:
       - name: MAVEN_ARGS_APPEND
-        value: {{ .Values.mvnXtraArgs "-Dquarkus.package.type=uber-jar -pl dataservice --also-make" }}
+        value: {{ .Values.mvnXtraArgs }}
       - name: ARTIFACT_DIR
         value: dataservice/target/
       - name: MODULE_DIR
