@@ -1,0 +1,3 @@
+build: true
+mvnXtraArgs: "-Dquarkus.package.type=uber-jar -pl api-server --also-make"
+ghRepo: https://github.com/RHEcosystemAppEng/DepDraw.git

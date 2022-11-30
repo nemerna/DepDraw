@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Release.Name }}-transformer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Release.Name }}-transformer
+  template:
+    metadata:
+      labels:
+        app: {{.Release.Name }}-transformer
+    spec:
+      serviceAccountName: default
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/depdraw/{{ .Release.Name }}-transformer:latest
+        name: {{.Release.Name }}-transformer
+        imagePullPolicy: Always
