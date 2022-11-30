@@ -1,0 +1,53 @@
+{
+    "Name": "my-diagram",
+    "Shapes": [
+        {
+            "ShapeType": "Namespace",
+            "ID": 1,
+            "Name": "my-namespace"
+        },
+        {
+            "ShapeType": "Service",
+            "ID": 2,
+            "ContainedBy": 1,
+            "Name": "my-deployments"
+        },
+        {
+            "ShapeType": "Service",
+            "ID": 3,
+            "ContainedBy": 1,
+            "Name": "my-service"
+        },
+        {
+            "ShapeType": "Route",
+            "ID": 4,
+            "ContainedBy": 1,
+            "Name": "my-route"
+        }
+    ],
+    "Connectors": [
+        {
+            "ID": 10,
+            "src": 4,
+            "dist": 3,
+            "ConnectorType": "Select"
+        },
+        {
+            "ID": 11,
+            "src": 3,
+            "dist": 2,
+            "ConnectorType": "Select"
+        },
+        {
+            "ID": 12,
+            "src": 3,
+            "dist": 2,
+            "ConnectorType": "inherit labels"
+        }
+    ],
+    "ShapeType": "Pod",
+    "Apperance": {
+        "Width": "10",
+        "Height": "10"
+    }
+}

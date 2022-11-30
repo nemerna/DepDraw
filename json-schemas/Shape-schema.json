@@ -17,52 +17,27 @@
                 "Route",
                 "Deployment",
                 "Statefulset",
-                "Project",
-                "Namespace",
-                "KeyValult"
+                "Namespace"
             ]
         },
         "ContainedBy": {
             "type": "integer",
             "description": "a reference to the shape ID that is Conatining this shape inside it\nmay be used when creating a NameSpace shape and a pod is being drawed inside this Namespace shape"
         },
-        "Apperance": {
-            "type": "object",
-            "description": "the shape appearance properties which decide how it is being displayed in the FE",
-            "minProperties": 0,
-            "maxProperties": null,
-            "additionalProperties": false,
-            "properties": {
-                "Width": {
-                    "type": "integer",
-                    "description": "the width of the rectangular representation of the shape in px",
-                    "default": "10"
-                },
-                "Height": {
-                    "type": "integer",
-                    "description": "the Height of the rectangular representation of the shape in px",
-                    "default": "10"
-                },
-                "PosX": {
-                    "type": "integer",
-                    "description": "the Position of the rectangular surrounding of the shape object top left corner, by default should be automatically set to the X position of the mouse once the shape is dropped in a diagram"
-                },
-                "PosY": {
-                    "type": "integer",
-                    "description": "the Position of the rectangular surrounding of the shape object top left corner on Y measure, by default should be automatically set to the Y position of the mouse once the shape is dropped in a diagram"
-                }
-            },
-            "required": [
-                "Width",
-                "Height",
-                "PosX",
-                "PosY"
-            ]
+        "Name": {
+            "type": "string",
+            "description": "The Name of the Shape, as the type indicates the type of the k8s corresponding resource, the Name should be a way to differ 2 shapes from the same type one from another in a human readable way"
+        },
+        "k8s_resource_uri": {
+            "type": "string",
+            "description": "a reference to the actual k8s resource, which supposed to contain the user customized values",
+            "format": "uri"
         }
     },
     "required": [
         "ID",
         "ShapeType",
-        "Apperance"
+        "Name",
+        "k8s_resource_uri"
     ]
 }

@@ -20,9 +20,8 @@
             "description": "the Type of connector for letting the BE know what logical actions should be applied over the final Diagram instance shapes",
             "enum": [
                 "inherit labels",
-                "sync selector",
-                "owned by",
-                "apply labels and annotations"
+                "inherit Annotations",
+                "Select"
             ]
         }
     },
