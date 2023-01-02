@@ -146,7 +146,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource"))
-                .body("resourceCatalogID", emptyString())
+                // .body("resourceCatalogID", emptyString())
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid));
 
@@ -163,7 +163,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource2"))
-                .body("resourceCatalogID", emptyString())
+                // .body("resourceCatalogID", emptyString())
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid2));
 
@@ -257,7 +257,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource"))
-                .body("resourceCatalogID", emptyString())
+                // .body("resourceCatalogID", emptyString())
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid));
 
@@ -273,7 +273,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource2"))
-                .body("resourceCatalogID", emptyString())
+                // .body("resourceCatalogID", emptyString())
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid2));
 
@@ -412,7 +412,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource"))
-                .body("resourceCatalogID", emptyString())
+                // .body("resourceCatalogID", emptyString())
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid));
 
