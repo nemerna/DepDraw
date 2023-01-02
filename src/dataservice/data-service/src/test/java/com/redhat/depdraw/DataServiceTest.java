@@ -114,10 +114,11 @@ public class DataServiceTest {
 
         DiagramResource dr = new DiagramResource();
         dr.setName("testDiagramResource");
+        dr.setResourceCatalogID("387585aa-8382-11ed-a1eb-0242ac120002");
 
         DiagramResource dr2 = new DiagramResource();
         dr2.setName("testDiagramResource2");
-
+        dr2.setResourceCatalogID("0ab01ee0-8211-11ed-a1eb-0242ac120002");
         //Create Diagram
         final String uuid = given().body(d)
                 .contentType(ContentType.JSON)
@@ -139,6 +140,9 @@ public class DataServiceTest {
                 .contentType(ContentType.JSON)
                 .when().post("/diagrams/{diagramId}/resources", uuid).getBody().as(DiagramResource.class).getUuid();
 
+        
+        
+        
         //Get DiagramResource by Id
         given().body(dr)
                 .contentType(ContentType.JSON)
@@ -146,7 +150,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource"))
-                // .body("resourceCatalogID", emptyString())
+                .body("resourceCatalogID", is("387585aa-8382-11ed-a1eb-0242ac120002"))
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid));
 
@@ -163,7 +167,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource2"))
-                // .body("resourceCatalogID", emptyString())
+                .body("resourceCatalogID", is("0ab01ee0-8211-11ed-a1eb-0242ac120002"))
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid2));
 
@@ -225,10 +229,10 @@ public class DataServiceTest {
 
         DiagramResource dr = new DiagramResource();
         dr.setName("testDiagramResource");
-
+        dr.setResourceCatalogID("387585aa-8382-11ed-a1eb-0242ac120002");
         DiagramResource dr2 = new DiagramResource();
         dr2.setName("testDiagramResource2");
-
+        dr2.setResourceCatalogID("0ab01ee0-8211-11ed-a1eb-0242ac120002");
         //Create Diagram
         final String uuid = given().body(d)
                 .contentType(ContentType.JSON)
@@ -257,7 +261,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource"))
-                // .body("resourceCatalogID", emptyString())
+                .body("resourceCatalogID", is("387585aa-8382-11ed-a1eb-0242ac120002"))
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid));
 
@@ -273,7 +277,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource2"))
-                // .body("resourceCatalogID", emptyString())
+                .body("resourceCatalogID", is("0ab01ee0-8211-11ed-a1eb-0242ac120002"))
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid2));
 
@@ -383,7 +387,7 @@ public class DataServiceTest {
 
         DiagramResource dr = new DiagramResource();
         dr.setName("testDiagramResource");
-
+        dr.setResourceCatalogID("387585aa-8382-11ed-a1eb-0242ac120002");
         //Create Diagram
         final String uuid = given().body(d)
                 .contentType(ContentType.JSON)
@@ -412,7 +416,7 @@ public class DataServiceTest {
                 .then()
                 .statusCode(200)
                 .body("name", is("testDiagramResource"))
-                // .body("resourceCatalogID", emptyString())
+                .body("resourceCatalogID", is("387585aa-8382-11ed-a1eb-0242ac120002"))
                 .body("diagramID", equalTo(uuid))
                 .body("uuid", equalTo(drUuid));
 
