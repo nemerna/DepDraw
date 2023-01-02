@@ -23,8 +23,6 @@ public class DiagramResourceService {
         UUID uuid = UUID.randomUUID();
         diagramResource.setUuid(uuid.toString());
         diagramResource.setDiagramID(diagramId);
-        diagramResource.setResourceCatalogID(""); //todo Nimer should fix this
-
         final DiagramResource createdDiagramResource = diagramResourceDao.create(diagramResource);
         final Diagram diagram = diagramService.getDiagramById(diagramResource.getDiagramID());
         diagram.getResourcesID().add(createdDiagramResource.getUuid());
@@ -49,5 +47,13 @@ public class DiagramResourceService {
 
     public List<DiagramResource> getDiagramResources(String diagramId) {
         return diagramResourceDao.getDiagramResources(diagramId);
+    }
+
+    public void updateDiagramResourceDefinition(String diagramId, String resourceId, String definition) {
+        diagramResourceDao.updateDefinition(diagramId, resourceId, definition);
+    }
+
+    public String getDiagramResourceDefinition(String diagramId, String resourceId) {
+        return diagramResourceDao.getDefinition(diagramId, resourceId);
     }
 }

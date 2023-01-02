@@ -78,4 +78,35 @@ public class DiagramResourceDaoImpl implements DiagramResourceDao {
 
         return List.of();
     }
+
+
+    @Override
+    public void updateDefinition(String diagramId, String diagramResourceId, String definition) {
+        try {
+            final String diagramResourcePathString = FileUtil.DIAGRAM_FILES_DIR + diagramId + "/"
+                    + FileUtil.DIAGRAM_RESOURCES_FILES_DIR + diagramResourceId + "/";
+            Path fileName = Path.of(diagramResourcePathString + FileUtil.DIAGRAM_RESOURCE_DEFINITION_FILE_NAME);
+            Files.writeString(fileName, definition, StandardOpenOption.WRITE);
+        } catch (Exception e) {
+            System.out.println("error" + "\n" + definition + "\n" + diagramId + "\n" + diagramResourceId);
+
+        }
+
+    }
+
+    @Override
+    public String getDefinition(String diagramId, String diagramResourceId) {
+        try {
+            final String diagramResourcePathString = FileUtil.DIAGRAM_FILES_DIR + diagramId + "/"
+                    + FileUtil.DIAGRAM_RESOURCES_FILES_DIR + diagramResourceId + "/";
+            Path fileName = Path.of(diagramResourcePathString + FileUtil.DIAGRAM_RESOURCE_DEFINITION_FILE_NAME);
+            String definition = Files.readString(fileName);
+            return definition;
+        } catch (Exception e) {
+            System.out.println("error" + "\n"  + "\n" + diagramId + "\n" + diagramResourceId);
+            return null;
+        }
+
+    }
+
 }

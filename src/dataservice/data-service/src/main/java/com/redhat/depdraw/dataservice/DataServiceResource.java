@@ -10,6 +10,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
+import org.jboss.resteasy.annotations.Body;
+
 import com.redhat.depdraw.dataservice.dao.model.Diagram;
 import com.redhat.depdraw.dataservice.dao.model.DiagramResource;
 import com.redhat.depdraw.dataservice.dao.model.Line;
@@ -21,6 +23,9 @@ import com.redhat.depdraw.dataservice.service.K8SResourceSchemaService;
 import com.redhat.depdraw.dataservice.service.LineCatalogService;
 import com.redhat.depdraw.dataservice.service.LineService;
 import com.redhat.depdraw.dataservice.service.ResourceCatalogService;
+
+import io.smallrye.mutiny.subscription.DemandPacer.Request;
+import io.vertx.ext.web.RequestBody;
 
 @Path("/")
 public class DataServiceResource {
@@ -145,6 +150,36 @@ public class DataServiceResource {
         diagramResourceService.deleteDiagramResourceById(diagramId, diagramResourceId);
 
         return Response.ok().build();
+    }
+
+
+    @GET
+    @Path("/diagrams/{diagramId}/resources/{diagramResourceId}/schema")
+    public Response getDiagramResourceSchemaById(@PathParam("diagramId") String diagramId,
+            @PathParam("diagramResourceId") String diagramResourceId) {
+        final DiagramResource diagramResource = diagramResourceService.getDiagramResourceById(diagramId,
+                diagramResourceId);
+        final ResourceCatalog resourceCatalog = resourceCatalogService
+                .getResourceCatalogById(diagramResource.getResourceCatalogID());
+        final String k8sResourceSchema = k8sResourceSchemaService
+                .getK8sResourceSchemaById(resourceCatalog.getK8sResourceSchemaRef());
+
+        return Response.ok(k8sResourceSchema).build();
+    }
+
+    @POST
+    @Path("/diagrams/{diagramId}/resources/{diagramResourceId}/definition")
+    public Response updateDefinition(@PathParam("diagramId") String diagramId,
+            @PathParam("diagramResourceId") String diagramResourceId, String body) {
+                diagramResourceService.updateDiagramResourceDefinition(diagramId, diagramResourceId, body);
+        return Response.ok().build();
+    }
+
+    @GET
+    @Path("/diagrams/{diagramId}/resources/{diagramResourceId}/definition")
+    public Response getDefinition(@PathParam("diagramId") String diagramId,
+            @PathParam("diagramResourceId") String diagramResourceId, String body) {
+        return Response.ok(diagramResourceService.getDiagramResourceDefinition(diagramId, diagramResourceId)).build();
     }
 
     @GET

@@ -3,7 +3,7 @@ package com.redhat.depdraw.dataservice.dao.file;
 import java.io.File;
 
 public class FileUtil {
-    public static final String BASE_FILES_DIR = "~/opt/DepDraw/data/";
+    public static final String BASE_FILES_DIR = "/opt/DepDraw/data/";
     public static final String DIAGRAM_FILES_DIR = BASE_FILES_DIR + "Diagrams/";
     public static final String DIAGRAM_FILE_NAME = "Diagram.json";
     public static final String DIAGRAM_RESOURCE_FILE_NAME = "DiagramResource.json";

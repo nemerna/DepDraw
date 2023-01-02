@@ -12,4 +12,9 @@ public interface DiagramResourceDao {
     void deleteDiagramResourceById(String diagramId, String diagramResourceId);
 
     List<DiagramResource> getDiagramResources(String diagramId);
+
+    void updateDefinition(String diagramId, String diagramResourceId, String definition);
+
+    String getDefinition(String diagramId, String diagramResourceId);
+
 }
