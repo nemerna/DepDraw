@@ -24,7 +24,6 @@ public class LineService {
         UUID uuid = UUID.randomUUID();
         line.setUuid(uuid.toString());
         line.setDiagramID(diagramId);
-        line.setLineCatalogID(""); //todo Nimer should fix this
 
         final Line createdLine = lineDao.create(line);
 
