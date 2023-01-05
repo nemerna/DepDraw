@@ -85,6 +85,13 @@ COPY --chown=185 target/quarkus-app/lib/ /deployments/lib/
 COPY --chown=185 target/quarkus-app/*.jar /deployments/
 COPY --chown=185 target/quarkus-app/app/ /deployments/app/
 COPY --chown=185 target/quarkus-app/quarkus/ /deployments/quarkus/
+COPY --chown=185 target/quarkus-app/quarkus/quarkus-run.jar /deployments/quarkus-run.jar
+
+USER 0
+
+RUN mkdir -p /opt/DepDraw/data/
+RUN chown 185 /opt/DepDraw/data/
+
 
 EXPOSE 8080
 USER 185
